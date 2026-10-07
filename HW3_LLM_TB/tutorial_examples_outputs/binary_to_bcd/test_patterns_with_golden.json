@@ -1,0 +1,92 @@
+[
+  {
+    "binary_input": 0,
+    "expected_outputs": {
+      "bcd_output": 0
+    }
+  },
+  {
+    "binary_input": 1,
+    "expected_outputs": {
+      "bcd_output": 1
+    }
+  },
+  {
+    "binary_input": 31,
+    "expected_outputs": {
+      "bcd_output": 49
+    }
+  },
+  {
+    "binary_input": 16,
+    "expected_outputs": {
+      "bcd_output": 22
+    }
+  },
+  {
+    "binary_input": 15,
+    "expected_outputs": {
+      "bcd_output": 21
+    }
+  },
+  {
+    "binary_input": 5,
+    "expected_outputs": {
+      "bcd_output": 5
+    }
+  },
+  {
+    "binary_input": 10,
+    "expected_outputs": {
+      "bcd_output": 16
+    }
+  },
+  {
+    "binary_input": 12,
+    "expected_outputs": {
+      "bcd_output": 18
+    }
+  },
+  {
+    "binary_input": 2,
+    "expected_outputs": {
+      "bcd_output": 2
+    }
+  },
+  {
+    "binary_input": 4,
+    "expected_outputs": {
+      "bcd_output": 4
+    }
+  },
+  {
+    "binary_input": 9,
+    "expected_outputs": {
+      "bcd_output": 9
+    }
+  },
+  {
+    "binary_input": 23,
+    "expected_outputs": {
+      "bcd_output": 35
+    }
+  },
+  {
+    "binary_input": 25,
+    "expected_outputs": {
+      "bcd_output": 37
+    }
+  },
+  {
+    "binary_input": 18,
+    "expected_outputs": {
+      "bcd_output": 24
+    }
+  },
+  {
+    "binary_input": 14,
+    "expected_outputs": {
+      "bcd_output": 20
+    }
+  }
+]
