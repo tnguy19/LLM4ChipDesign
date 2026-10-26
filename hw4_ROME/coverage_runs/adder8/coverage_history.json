@@ -1,0 +1,107 @@
+{
+  "design": "adder8",
+  "history": [
+    {
+      "iteration": "Baseline",
+      "num_tests": 3,
+      "line": 100,
+      "toggle_0to1": 38,
+      "toggle_1to0": 50,
+      "logic": 60,
+      "counts": {
+        "line_counts": [
+          3,
+          0,
+          3
+        ],
+        "toggle_0to1_counts": [
+          21,
+          35,
+          56
+        ],
+        "toggle_1to0_counts": [
+          28,
+          28,
+          56
+        ],
+        "logic_counts": [
+          6,
+          4,
+          10
+        ]
+      },
+      "tb_file": "./adder8tb.v",
+      "run_dir": "./coverage_runs/adder8/cov_baseline",
+      "rtl_note": "",
+      "time": "2026-10-22 20:30:28"
+    },
+    {
+      "iteration": "Refine 1",
+      "num_tests": 11,
+      "line": 100,
+      "toggle_0to1": 82,
+      "toggle_1to0": 86,
+      "logic": 100,
+      "counts": {
+        "line_counts": [
+          3,
+          0,
+          3
+        ],
+        "toggle_0to1_counts": [
+          46,
+          10,
+          56
+        ],
+        "toggle_1to0_counts": [
+          48,
+          8,
+          56
+        ],
+        "logic_counts": [
+          10,
+          0,
+          10
+        ]
+      },
+      "tb_file": "./coverage_runs/adder8/tb_iter_1.v",
+      "run_dir": "./coverage_runs/adder8/cov_refine_1",
+      "rtl_note": "",
+      "time": "2026-10-22 20:30:33"
+    },
+    {
+      "iteration": "Refine 2",
+      "num_tests": 18,
+      "line": 100,
+      "toggle_0to1": 100,
+      "toggle_1to0": 100,
+      "logic": 100,
+      "counts": {
+        "line_counts": [
+          3,
+          0,
+          3
+        ],
+        "toggle_0to1_counts": [
+          56,
+          0,
+          56
+        ],
+        "toggle_1to0_counts": [
+          56,
+          0,
+          56
+        ],
+        "logic_counts": [
+          10,
+          0,
+          10
+        ]
+      },
+      "tb_file": "./coverage_runs/adder8/tb_iter_2.v",
+      "run_dir": "./coverage_runs/adder8/cov_refine_2",
+      "rtl_note": "",
+      "time": "2026-10-22 20:30:39"
+    }
+  ]
+}
