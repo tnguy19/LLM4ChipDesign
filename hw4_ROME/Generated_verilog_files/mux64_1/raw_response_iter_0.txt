@@ -1,0 +1,11 @@
+module mux64_1(input [5:0] sel, input [63:0] in, output reg out);
+  wire lower_out;
+  wire upper_out;
+
+  mux32_1 u_lower (.sel(sel[4:0]), .in(in[31:0]),  .out(lower_out));
+  mux32_1 u_upper (.sel(sel[4:0]), .in(in[63:32]), .out(upper_out));
+
+  always @* begin
+    out = sel[5] ? upper_out : lower_out;
+  end
+endmodule
