@@ -1,0 +1,3 @@
+VCD info: dumpfile ./coverage_runs/adder8/cov_baseline/raw.vcd opened for output.
+adder8 passed!
+./coverage_runs/adder8/cov_baseline/tb_used.v:24: $finish called at 3 (1s)

@@ -1,0 +1,15 @@
+// Drive cin 0->1 and 1->0; also exercise internal carry generation in bit0 (half_adder 11)
+    check(8'h00, 8'h00, 1'b1);
+    check(8'h00, 8'h00, 1'b0);
+
+    // Force LSB a=b=1 so half_adder sees 11 (xor and and) and generate carries; then clear to get 1->0 toggles
+    check(8'h01, 8'h01, 1'b0);
+    check(8'h00, 8'h00, 1'b0);
+
+    // Create ripple carry through low nibble to raise c4 and exercise full_adder cout OR input combos; then drop it
+    check(8'h0F, 8'h01, 1'b0);
+    check(8'h00, 8'h00, 1'b0);
+
+    // Create full 8-bit carry out to toggle cout and high sum bits; then clear to get 1->0 toggles
+    check(8'hFF, 8'h01, 1'b0);
+    check(8'h00, 8'h00, 1'b0);

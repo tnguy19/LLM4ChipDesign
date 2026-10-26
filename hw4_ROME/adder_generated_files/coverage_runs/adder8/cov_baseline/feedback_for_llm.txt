@@ -1,0 +1,29 @@
+Current coverage (accumulated over the hierarchy): line 100%, toggle 0->1 38%, toggle 1->0 50%, logic 60%.
+
+SIGNALS WITH MISSING TOGGLE DIRECTIONS (bit index = position in the vector):
+- module adder8, signal a[8]: never rises 0->1 on bits [0, 2, 4, 5, 6, 7]; never falls 1->0 on bits [2, 4, 5, 6, 7]
+- module adder8, signal b[8]: never rises 0->1 on bits [0, 1, 3, 5, 6, 7]; never falls 1->0 on bits [0, 3, 5, 6, 7]
+- module adder8, signal cin[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder8, signal sum[8]: never rises 0->1 on bits [0, 1, 5, 6, 7]; never falls 1->0 on bits [5, 6, 7]
+- module adder8, signal cout[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder8, signal c4[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder4, signal a[4]: never rises 0->1 on bits [0, 2]; never falls 1->0 on bits [2]
+- module adder4, signal b[4]: never rises 0->1 on bits [1, 3]; never falls 1->0 on bits [3]
+- module adder4, signal cin[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder4, signal sum[4]: never rises 0->1 on bits [1]
+- module adder4, signal cout[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder4, signal c1[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder4, signal c2[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module adder4, signal c3[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module full_adder, signal cin[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module full_adder, signal cout[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module full_adder, signal c1[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module full_adder, signal c2[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+- module half_adder, signal carry[1]: never rises 0->1 on bits [0]; never falls 1->0 on bits [0]
+
+UNCOVERED LOGIC COMBINATIONS (L,R = left/right operand of the operator; '-' = don't care):
+- module full_adder, line 14: `assign cout = c1 | c2` operator '|' missing input combos: 1-, -1
+- module half_adder, line 2: `assign sum = a ^ b` operator '^' missing input combos: 11
+- module half_adder, line 3: `assign carry = a & b` operator '&' missing input combos: 11
+
+NOTE: only the top-level module's inputs can be driven by the testbench. Signals inside submodules (e.g. carries) are reached by choosing top-level input patterns.

@@ -1,0 +1,10 @@
+// Toggle b bits [1,3,5,6,7] 0->1 with no sum change (a=0) then force sum[5:7] 0->1 via a=1 and fall back
+    check(8'h00, 8'h00, 1'b0);
+    check(8'h00, 8'hEA, 1'b0);  // b[1,3,5,6,7] rise; sum mirrors b
+    check(8'h00, 8'h00, 1'b0);  // b[3,5,6,7] fall back to 0
+
+    // Exercise sum[5],sum[6],sum[7] 0->1 and 1->0 while keeping b stable (also re-toggles b[1])
+    check(8'h20, 8'h00, 1'b0);  // sum[5] rise
+    check(8'h40, 8'h00, 1'b0);  // sum[5] fall, sum[6] rise
+    check(8'h80, 8'h00, 1'b0);  // sum[6] fall, sum[7] rise
+    check(8'h00, 8'h00, 1'b0);  // sum[7] fall

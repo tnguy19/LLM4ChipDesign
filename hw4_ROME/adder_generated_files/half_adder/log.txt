@@ -1,0 +1,44 @@
+system: You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.
+user: The following is the testbench that will be used to compile/simulate your module. Do NOT generate a testbench or modify it. Only use it to ensure your module compiles and passes.
+
+```verilog
+module half_adder_tb;
+  reg a, b; wire sum, carry;
+  integer errors;
+  half_adder dut(.a(a), .b(b), .sum(sum), .carry(carry));
+  task check(input ta, input tb_);
+    begin
+      a = ta; b = tb_; #1;
+      if ({carry, sum} !== ta + tb_) begin
+        errors = errors + 1;
+        $display("FAILED half_adder a=%b b=%b got carry=%b sum=%b", ta, tb_, carry, sum);
+      end
+    end
+  endtask
+  initial begin
+    errors = 0;
+    check(0, 0);
+    check(0, 1);
+    check(1, 0);
+    check(1, 1);
+    if (errors == 0) $display("half_adder passed!"); else $display("half_adder Failed");
+    $finish;
+  end
+endmodule
+
+```
+
+user: // We will be generating a 8-bit adder built from two adder4 instances hierarchically in Verilog.
+// IMPORTANT: Output ONLY the module requested below.
+// Do NOT generate any previous modules, future modules, explanations, or testbenches.
+// Use Verilog-2001 only.
+// Begin by generating: half adder
+
+module half_adder(input a, input b, output sum, output carry);
+// Insert code here
+endmodule
+
+assistant: module half_adder(input a, input b, output sum, output carry);
+  assign sum = a ^ b;
+  assign carry = a & b;
+endmodule

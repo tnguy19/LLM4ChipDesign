@@ -1,0 +1,79 @@
+system: You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.
+user: The following is the testbench that will be used to compile/simulate your module. Do NOT generate a testbench or modify it. Only use it to ensure your module compiles and passes.
+
+```verilog
+module adder8_tb;
+  reg [7:0] a, b; reg cin; wire [7:0] sum; wire cout;
+  integer errors;
+  adder8 dut(.a(a), .b(b), .cin(cin), .sum(sum), .cout(cout));
+  task check(input [7:0] ta, input [7:0] tb_, input tc);
+    reg [8:0] expv;
+    begin
+      a = ta; b = tb_; cin = tc; #1;
+      expv = ta + tb_ + tc;
+      if ({cout,sum} !== expv) begin
+        errors = errors + 1;
+        $display("FAILED a=%0d b=%0d cin=%0d got=%0d exp=%0d", ta, tb_, tc, {cout,sum}, expv);
+      end
+    end
+  endtask
+  initial begin
+    errors = 0;
+    check(8'd1, 8'd2, 1'b0);
+    check(8'd10, 8'd20, 1'b0);
+    check(8'd0,  8'd0,  1'b0);
+    // COVERAGE_TESTS_BEGIN
+    // COVERAGE_TESTS_END
+    if (errors == 0) $display("adder8 passed!"); else $display("adder8 failed");
+    $finish;
+  end
+endmodule
+
+```
+
+user: // We are generating a 8-bit adder built from two adder4 instances hierarchically in Verilog.
+// Use Verilog-2001 only.
+
+// Previously generated modules are shown below for reference only.
+// You may instantiate them, but you must NOT repeat their definitions.
+
+// File: ./half_adder/half_adder.v
+module half_adder(input a, input b, output sum, output carry);
+endmodule
+
+// File: ./full_adder/full_adder.v
+module full_adder(input a, input b, input cin, output sum, output cout);
+endmodule
+
+// File: ./adder4/adder4.v
+module adder4(input [3:0] a, input [3:0] b, input cin, output [3:0] sum, output cout);
+endmodule
+
+// IMPORTANT: Output ONLY the new module requested below.
+// Do NOT repeat any previous modules.
+// Do NOT generate explanations, Markdown fences, or a testbench.
+// Now generate: 8-bit adder built from two adder4 instances
+
+module adder8(input [7:0] a, input [7:0] b, input cin, output [7:0] sum, output cout);
+// Insert code here
+endmodule
+
+assistant: module adder8(input [7:0] a, input [7:0] b, input cin, output [7:0] sum, output cout);
+  wire c4;
+
+  adder4 u0 (
+    .a   (a[3:0]),
+    .b   (b[3:0]),
+    .cin (cin),
+    .sum (sum[3:0]),
+    .cout(c4)
+  );
+
+  adder4 u1 (
+    .a   (a[7:4]),
+    .b   (b[7:4]),
+    .cin (c4),
+    .sum (sum[7:4]),
+    .cout(cout)
+  );
+endmodule
