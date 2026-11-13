@@ -130,11 +130,13 @@ and its proof do not depend on the key's value.
 
 ## 8. AI logs
 
-This submission was produced interactively in a Claude Desktop (Cowork) session; the **full prompt/
-response transcript of that session is the required AI-interaction log** — export the conversation and
-include it in `ai/`. `ai/progression_log.md` summarizes the chronological process. An earlier Anthropic-
-API agentic notebook was also attempted but the API refused the Trojan-related calls (a false positive
-on this sanctioned task), so the Cowork session was used instead.
+This submission was produced interactively in a Claude Desktop (Cowork) session. The full prompt/
+response transcript is included at **`ai/raw_conversation_log.pdf`** (the required AI-interaction log,
+and the confirmation that no hardware was human-written). **`ai/transcript_cleaned.md`** is a readable,
+typo-corrected version of the same exchange, and **`ai/progression_log.md`** summarizes the
+chronological process. An earlier Anthropic-API agentic notebook was also attempted, but the API
+refused the Trojan-related calls (a false positive on this sanctioned task), so the Cowork session was
+used instead.
 
 ## Files
 ```
@@ -143,5 +145,6 @@ rtl/                    primary trojaned RTL (distributed one-shot) + S-box modu
 tb/                     tb_agentic.v (exploit), tb_verify.v (round-trip)
 baseline_rtl/           trojan-free reconstruction (diff oracle)
 advanced_trojan/        command-configurable covert serial variant (rtl/ + tb/ + its own README)
-ai/                     reverse-engineering notes + progression log (+ exported chat transcript)
+ai/                     raw_conversation_log.pdf (full transcript), transcript_cleaned.md,
+                        progression_log.md, reverse_engineering_notes.md
 ```
