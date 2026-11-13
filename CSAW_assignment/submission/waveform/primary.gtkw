@@ -1,0 +1,17 @@
+[dumpfile] "primary.vcd"
+[savefile] "primary.gtkw"
+[timestart] 0
+[sst_width] 220
+[signals_width] 160
+@28
+tb_agentic.SCK
+tb_agentic.START
+tb_agentic.BUSY
+tb_agentic.NORM_CS_N
+tb_agentic.MISO
+@22
+tb_agentic.dut.mc[1:0]
+@28
+tb_agentic.dut.dbg
+[pattern_trace] 1
+[pattern_trace] 0

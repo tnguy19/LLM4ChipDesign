@@ -1,0 +1,16 @@
+[dumpfile] "advanced.vcd"
+[savefile] "advanced.gtkw"
+[timestart] 0
+@28
+tb_agentic.SCK
+tb_agentic.START
+tb_agentic.BUSY
+tb_agentic.NORM_CS_N
+tb_agentic.MISO
+tb_agentic.dut.armed
+tb_agentic.dut.leak_this
+@22
+tb_agentic.dut.key_idx[4:0]
+tb_agentic.dut.leak_pos[4:0]
+[pattern_trace] 1
+[pattern_trace] 0
