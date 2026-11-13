@@ -128,7 +128,7 @@ unknowns. The key could be brute-forced/solved against the published vector
 `encrypt(0x59C359C3)=0x9CD84392` once the rotation direction and S-box bit-order are fixed. The Trojan
 and its proof do not depend on the key's value.
 
-## 8. AI logs
+## 8. AI conversation logs
 
 This submission was produced interactively in a Claude Desktop (Cowork) session. The full prompt/
 response transcript is included at **`ai/raw_conversation_log.pdf`** (the required AI-interaction log,
